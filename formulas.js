@@ -104,7 +104,7 @@
       this.draw = __bind(this.draw, this);;      this.width = 300;
       this.height = 140;
       this.padding = 40;
-      this.x = d3.scale.linear().domain([0, 60]).range([0 + this.padding, this.width - this.padding]);
+      this.x = d3.scale.linear().domain([0, 40]).range([0 + this.padding, this.width - this.padding]);
       this.yGForce = d3.scale.linear().domain([0, 1.5]).range([0 + this.padding, this.height - this.padding]);
       this.yYaw = d3.scale.linear().domain([0, 30]).range([0 + this.padding, this.height - this.padding]);
       this.gforceGraph = d3.select("#gforce_graph").attr("width", this.width + this.padding * 2).attr("height", this.height - 20);

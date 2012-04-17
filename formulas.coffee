@@ -146,7 +146,7 @@ class GForceGraph
     @width =  300
     @height = 140
     @padding = 40
-    @x = d3.scale.linear().domain([0, 60]).range([0+@padding, @width - @padding])
+    @x = d3.scale.linear().domain([0, 40]).range([0+@padding, @width - @padding])
     @yGForce = d3.scale.linear().domain([0, 1.5]).range([0+@padding, @height - @padding])
     @yYaw = d3.scale.linear().domain([0, 30]).range([0+@padding, @height - @padding])
     @gforceGraph = d3.select("#gforce_graph")
