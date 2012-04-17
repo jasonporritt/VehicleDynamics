@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test Fomulas</title>
+    <script src='jquery-1.7.min.js'></script>
+    <script src='bootstrap/js/bootstrap.min.js'></script>
+    <script src='Tangle.js'></script>
+    <script src='TangleKit/mootools.js'></script>
+    <script src='TangleKit/TangleKit.js'></script>
+    <script src='TangleKit/BVTouchable.js'></script>
+    <script src='TangleKit/sprintf.js'></script>
+    <script src='d3.v2.min.js'></script>
+    <link href='bootstrap/css/bootstrap.min.css' rel='stylesheet' />
+    <link href='bootstrap/css/bootstrap-responsive.min.css' rel='stylesheet' />
+    <link href='TangleKit/TangleKit.css' rel='stylesheet' />
+    <style type='text/css'>
+      /*<![CDATA[*/
+        .gforceLine {
+            stroke: steelblue;
+            stroke-width: 2;
+            fill: none;
+        }
+        .yawLine {
+            stroke: green;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .yGForceLabel {
+          fill: steelblue;
+        }
+        .yYawLabel {
+          fill: green;
+        }
+        .yTicks {
+            stroke: #bbb;
+            stroke-width: 1;
+        }
+         
+        text {
+            font-family: Arial;
+            font-size: 9pt;
+        }
+      /*]]>*/
+    </style>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='span9'>
+          <div class='page-header'>
+            <h1>Vehicle Dynamics Introduction</h1>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='span4'>
+          <table class='table'>
+            <tr>
+              <th>Wheelbase</th>
+              <td class='TKAdjustableNumber' data-format='%.1f' data-max='150' data-min='0' data-step='0.1' data-var='wheelbase'>&nbsp;inches</td>
+            </tr>
+            <tr>
+              <th>Track Width</th>
+              <td class='TKAdjustableNumber' data-format='%.1f' data-max='100' data-min='0' data-step='0.1' data-var='trackWidth'>&nbsp;inches</td>
+            </tr>
+            <tr>
+              <th>Steering Angle (outer)</th>
+              <td class='TKAdjustableNumber' data-format='%.1f' data-max='40' data-min='0' data-step='0.1' data-var='steeringAngle'>&nbsp;degrees</td>
+            </tr>
+            <tr>
+              <th>Steering Angle (inner)</th>
+              <td data-format='%.1f' data-var='steeringAngleInner'>&nbsp;degrees</td>
+            </tr>
+            <tr>
+              <th>Steering Angle (average)</th>
+              <td data-format='%.1f' data-var='steeringAngleAverage'>&nbsp;degrees</td>
+            </tr>
+            <tr>
+              <th>Speed</th>
+              <td class='TKAdjustableNumber' data-max='200' data-min='0' data-var='mph'>&nbsp;mph</td>
+            </tr>
+            <tr>
+              <th>Turn radius (outer)</th>
+              <td data-format='%.2f' data-var='turnRadius'>&nbsp;feet</td>
+            </tr>
+            <tr>
+              <th>Inner Wheel Speed</th>
+              <td data-format='%.2f' data-var='innerWheelSpeed'>&nbsp;mph</td>
+            </tr>
+            <tr>
+              <th>Outer Wheel Speed</th>
+              <td data-format='%.2f' data-var='outerWheelSpeed'>&nbsp;mph</td>
+            </tr>
+            <tr>
+              <th>G Force</th>
+              <td data-format='%.2f' data-var='gForce'>&nbsp;G</td>
+            </tr>
+            <tr>
+              <th>Yaw Rate</th>
+              <td data-format='%.2f' data-var='yawRate'>&nbsp;deg/sec.</td>
+            </tr>
+          </table>
+        </div>
+        <div class='span4 offset1'>
+          <h3>G-Force, Yaw rate Vs. Steering Angle</h3>
+          <h4>
+            at
+            <span data-format='%.1f' data-var='mph'>&nbsp;mph</span>
+          </h4>
+          <svg id='gforce_graph'></svg>
+          <h3>G-Force, Yaw rate Vs. Speed</h3>
+          <h4>
+            turning at
+            <span data-format='%.1f' data-var='steeringAngle'>&nbsp;degrees</span>
+          </h4>
+          <svg id='gforce_graph_vs_speed'></svg>
+        </div>
+      </div>
+    </div>
+    <script src='formulas.js'></script>
+  </body>
+</html>

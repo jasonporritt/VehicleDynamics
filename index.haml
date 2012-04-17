@@ -1,0 +1,103 @@
+!!! 5
+
+%html
+  %head
+
+    %title Test Fomulas
+    %script{:src => "jquery-1.7.min.js"}
+    %script{:src => "bootstrap/js/bootstrap.min.js"}
+    %script{:src => "Tangle.js"}
+    %script{:src => "TangleKit/mootools.js"}
+    %script{:src => "TangleKit/TangleKit.js"}
+    %script{:src => "TangleKit/BVTouchable.js"}
+    %script{:src => "TangleKit/sprintf.js"}
+    %script{:src => "d3.v2.min.js"}
+
+    %link{:rel => "stylesheet", :href => "bootstrap/css/bootstrap.min.css"}
+    %link{:rel => "stylesheet", :href => "bootstrap/css/bootstrap-responsive.min.css"}
+    %link{:rel => "stylesheet", :href => "TangleKit/TangleKit.css"}
+
+    :css
+      .gforceLine {
+          stroke: steelblue;
+          stroke-width: 2;
+          fill: none;
+      }
+      .yawLine {
+          stroke: green;
+          stroke-width: 2;
+          fill: none;
+      }
+
+      .yGForceLabel {
+        fill: steelblue;
+      }
+      .yYawLabel {
+        fill: green;
+      }
+      .yTicks {
+          stroke: #bbb;
+          stroke-width: 1;
+      }
+       
+      text {
+          font-family: Arial;
+          font-size: 9pt;
+      }
+
+  %body
+    .container
+      .row
+        .span9
+          .page-header
+            %h1 Vehicle Dynamics Introduction
+      .row
+        .span4
+          %table.table
+            %tr
+              %th Wheelbase
+              %td.TKAdjustableNumber{"data-var" => "wheelbase", "data-min" => 0, "data-max" => 150, "data-step" => 0.1, "data-format" => "%.1f"} &nbsp;inches
+            %tr
+              %th Track Width
+              %td.TKAdjustableNumber{"data-var" => "trackWidth", "data-min" => 0, "data-max" => 100, "data-step" => 0.1, "data-format" => "%.1f"} &nbsp;inches
+            %tr
+              %th Steering Angle (outer)
+              %td.TKAdjustableNumber{"data-var" => "steeringAngle", "data-min" => 0, "data-max" => 40, "data-step" => 0.1, "data-format" => "%.1f"} &nbsp;degrees
+            %tr
+              %th Steering Angle (inner)
+              %td{"data-var" => "steeringAngleInner", "data-format" => "%.1f"} &nbsp;degrees
+            %tr
+              %th Steering Angle (average)
+              %td{"data-var" => "steeringAngleAverage", "data-format" => "%.1f"} &nbsp;degrees
+            %tr
+              %th Speed
+              %td.TKAdjustableNumber{"data-var" => "mph", "data-min" => 0, "data-max" => 200} &nbsp;mph
+            %tr
+              %th Turn radius (outer)
+              %td{"data-var" => "turnRadius", "data-format" => "%.2f"} &nbsp;feet
+            %tr
+              %th Inner Wheel Speed
+              %td{"data-var" => "innerWheelSpeed", "data-format" => "%.2f"} &nbsp;mph
+            %tr
+              %th Outer Wheel Speed
+              %td{"data-var" => "outerWheelSpeed", "data-format" => "%.2f"} &nbsp;mph
+            %tr
+              %th G Force
+              %td{"data-var" => "gForce", "data-format" => "%.2f"} &nbsp;G
+            %tr
+              %th Yaw Rate
+              %td{"data-var" => "yawRate", "data-format" => "%.2f"} &nbsp;deg/sec.
+        .span4.offset1
+          %h3 G-Force, Yaw rate Vs. Steering Angle
+          %h4
+            at
+            %span{"data-var" => "mph", "data-format" => "%.1f"} &nbsp;mph
+          %svg#gforce_graph
+          %h3 G-Force, Yaw rate Vs. Speed
+          %h4
+            turning at
+            %span{"data-var" => "steeringAngle", "data-format" => "%.1f"} &nbsp;degrees
+          %svg#gforce_graph_vs_speed
+
+
+    %script{:src => "formulas.js"}
