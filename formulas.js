@@ -165,8 +165,8 @@
         this.steeringAngle = 0;
         this.steeringAngleInner = 0;
         this.steeringAngleAverage = 0;
-        this.wheelbase = 100;
-        this.trackWidth = 50;
+        this.wheelbase = 103.9;
+        this.trackWidth = 60.4;
         return this.mph = 30;
       },
       update: function() {

@@ -256,8 +256,8 @@ bootstrap = () ->
       @steeringAngle = 0
       @steeringAngleInner = 0
       @steeringAngleAverage = 0
-      @wheelbase = 100
-      @trackWidth = 50
+      @wheelbase = 103.9
+      @trackWidth = 60.4
       @mph = 30
     update: () ->
       @turnRadius = calculateTurnRadius @wheelbase, @steeringAngle
